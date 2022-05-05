@@ -1,0 +1,28 @@
+label {
+  font-weight: 700;
+}
+
+.loginLabel input {
+  height: 30px;
+  width: 96.5%;
+  margin-bottom: 1em;
+  font-size: 1em;
+}
+
+.checkboxLabel {
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.loginSubmit {
+  background-color: #00bc77;
+  width: 100%;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 0.7em 0em;
+  margin-top: 1em;
+  text-decoration: underline;
+  cursor: pointer;
+}

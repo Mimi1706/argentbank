@@ -1,0 +1,35 @@
+.accountBalance {
+  background-color: white;
+  margin: 2em;
+  padding: 1.5em;
+  width: 85%;
+  color: #2c3e50;
+  position: relative;
+}
+
+.accountBalance span {
+  padding: 0;
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.accountBalance p {
+  padding: 0;
+  margin: 0;
+}
+
+.accountBalance button {
+  width: 100%;
+  margin-top: 1em;
+  font-size: 1.2em;
+}
+
+@media (min-width: 720px) {
+  .accountBalance button {
+    width: 12em;
+    position: absolute;
+    right: 20px;
+    top: 20%;
+  }
+}
