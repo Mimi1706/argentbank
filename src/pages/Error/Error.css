@@ -1,0 +1,41 @@
+.errorMessage {
+  text-align: center;
+  color: white;
+}
+
+.errorMessage {
+  font-weight: 600;
+  margin: 5em;
+}
+
+.errorMessage p {
+  margin-bottom: 3em;
+  font-size: 2em;
+}
+
+.returnHomeBtn {
+  background-color: #00bc77;
+  width: 100%;
+  border: #018555 solid 3px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.5em;
+  padding: 0.5em 1em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 920px) {
+  .errorMessage {
+    margin: 5em 2em;
+  }
+
+  .errorMessage p {
+    margin-bottom: 3em;
+    font-size: 1.5em;
+  }
+
+  .returnHomeBtn {
+    font-size: 1em;
+  }
+}

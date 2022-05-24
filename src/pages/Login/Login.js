@@ -3,9 +3,9 @@ import "./Login.css"
 
 const Login = () => {
   return (
-    <main className="loginMain">
+    <main className="bgMain">
       <section className="loginSection">
-        <i class="fa fa-user-circle" />
+        <i className="fa fa-user-circle" />
         <h1>Sign In</h1>
         <LoginForm />
       </section>

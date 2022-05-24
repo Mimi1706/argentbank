@@ -26,3 +26,10 @@ label {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.errorMsg {
+  color: red;
+  margin-top: -0.9em;
+  margin-bottom: 0.4em;
+  font-weight: 500;
+}

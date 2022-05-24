@@ -1,0 +1,32 @@
+.editNameSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editNameFields {
+  display: flex;
+}
+
+.editNameLabel input {
+  margin: 0em 0.5em;
+  padding: 0.5em;
+  width: 10em;
+  border-radius: 0.2em;
+  border: solid 2px lightgray;
+}
+
+.editNameButtons button {
+  color: #5b4df5;
+  font-weight: 500;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 8em;
+  border: solid 2px #aaa9ef;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}

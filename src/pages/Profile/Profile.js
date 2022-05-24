@@ -1,13 +1,55 @@
-//import AccountBalance from "../../components/AccountBalance/AccountBalance"
 import "./Profile.css"
 
+import AccountBalance from "../../components/AccountInfos/AccountInfos"
+import EditName from "../../components/Forms/EditName/EditName"
+
+import { useState } from "react"
+import { useSelector } from "react-redux"
+import { Navigate } from "react-router-dom"
+import { accountBalances } from "../../data/accountBalances"
+
 const Profile = () => {
-  return (
+  const loggingStatus = useSelector((state) => state.isloggedReducer)
+  const [toggle, setToggle] = useState(false)
+  const toggleEditNameForm = () => {
+    setToggle(!toggle)
+  }
+
+  const firstName = useSelector((state) => state.getUserInfosReducer.firstName)
+  const lastName = useSelector((state) => state.getUserInfosReducer.lastName)
+
+  return loggingStatus === false ? (
+    <Navigate to="/error" />
+  ) : (
     <main className="profileMain">
       <h1 className="profileTitle">
-        Welcome back <span></span>
+        Welcome back
+        <span>
+          {firstName} {lastName}
+        </span>
       </h1>
-      <button>Edit Name</button>
+      <EditName
+        className={
+          toggle === true ? "editNameSection" : "editNameSection hidden"
+        }
+        cancel={toggleEditNameForm}
+      />
+      <button
+        className={toggle === true ? "editNameBtn hidden" : "editNameBtn"}
+        onClick={toggleEditNameForm}
+      >
+        Edit Name
+      </button>
+      <section className="allAccountBalances">
+        {accountBalances.map(({ name, balance, type }, index) => (
+          <AccountBalance
+            key={`account-${index}`}
+            accountName={name}
+            accountBalance={balance}
+            balanceType={type}
+          />
+        ))}
+      </section>
     </main>
   )
 }
