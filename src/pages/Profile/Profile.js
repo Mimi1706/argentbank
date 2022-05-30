@@ -45,7 +45,7 @@ const Profile = () => {
           <AccountBalance
             key={`account-${index}`}
             accountName={name}
-            accountBalance={balance}
+            accountBalance={balance.toLocaleString("en")}
             balanceType={type}
           />
         ))}
