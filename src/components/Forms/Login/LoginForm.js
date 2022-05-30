@@ -5,49 +5,44 @@ import { Navigate } from "react-router-dom"
 import { getToken, getUser } from "../../../utils/Apifetch"
 
 import { login, getName } from "../../../redux/actions"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 const LoginForm = () => {
-  const [errorMsg, setErrorMsg] = useState(null)
-  const [token, setToken] = useState(null)
-  const [userInfos, setUserInfos] = useState({
-    firstName: "",
-    lastName: "",
-  })
+  const dispatch = useDispatch()
 
-  // When the submit button is clicked
+  const loggingStatus = useSelector((state) => state.isloggedReducer) // true is connected, false is disconnected
+
+  const [errorMsg, setErrorMsg] = useState(null)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
   const HandleSubmit = async (e) => {
     e.preventDefault()
 
     // Retrieve token
     const dataToken = await getToken({
-      email: e.target.email.value,
-      password: e.target.password.value,
+      email: email,
+      password: password,
     })
 
+    // Check if the token sends back a status 200
     if (dataToken.status === 200) {
-      const dataUser = await getUser(dataToken.body.token)
+      localStorage.setItem("token", dataToken.body.token)
       setErrorMsg(null)
-
-      // Check if the token allows access to user profile and saves token (to localStorage) + userInfos (to store)
-      if (dataUser.status === 200) {
-        localStorage.setItem("token", dataToken.body.token)
-        setToken(dataToken.body.token)
-        setUserInfos({
-          firstName: dataUser.body.firstName,
-          lastName: dataUser.body.lastName,
-        })
-      }
     } else {
       setErrorMsg(dataToken.message)
     }
+
+    const token = localStorage.getItem("token")
+
+    if (token) {
+      const dataUser = await getUser(dataToken.body.token)
+      dispatch(login())
+      dispatch(getName(dataUser.body.firstName, dataUser.body.lastName))
+    }
   }
 
-  const dispatch = useDispatch()
-
-  if (token) {
-    dispatch(login())
-    dispatch(getName(userInfos.firstName, userInfos.lastName))
+  if (loggingStatus) {
     return <Navigate to="/profile" />
   }
 
@@ -55,7 +50,12 @@ const LoginForm = () => {
     <form className="loginForm" onSubmit={HandleSubmit}>
       <div className="loginLabel">
         <label>Username </label>
-        <input type="email" id="email" />
+        <input
+          type="email"
+          id="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
       </div>
 
       {errorMsg === "Error: User not found!" ? (
@@ -64,7 +64,12 @@ const LoginForm = () => {
 
       <div className="loginLabel">
         <label>Password</label>
-        <input type="password" id="password" />
+        <input
+          type="password"
+          id="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
       </div>
 
       {errorMsg === "Error: Password is invalid" ? (
