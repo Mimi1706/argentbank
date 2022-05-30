@@ -1,9 +1,9 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   title: Bank Argent API documentation
   description: Contains all available API endpoints in this codebase
-  version: '1.0.0'
-  termsOfService: 'http://swagger.io/terms/'
+  version: "1.0.0"
+  termsOfService: "http://swagger.io/terms/"
 host: localhost:3001
 basePath: /api/v1
 schemes:
@@ -21,17 +21,17 @@ paths:
           description: Login Payload
           required: true
           schema:
-            $ref: '#/definitions/Login'
+            $ref: "#/definitions/Login"
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: Login Successfully
           schema:
-            $ref: '#/definitions/LoginResponse'
-        '400':
+            $ref: "#/definitions/LoginResponse"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
   /user/signup:
     post:
@@ -45,17 +45,17 @@ paths:
           description: Signup Payload
           required: true
           schema:
-            $ref: '#/definitions/User'
+            $ref: "#/definitions/User"
       produces:
         - application/json
       responses:
-        '200':
+        "200":
           description: Signup Successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
+            $ref: "#/definitions/ApiResponse"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
   /user/profile:
     post:
@@ -74,13 +74,13 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
-          description: User profile retrieved successully
+        "200":
+          description: User profile retrieved successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
+            $ref: "#/definitions/ApiResponse"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
     put:
       security:
@@ -100,17 +100,17 @@ paths:
           description: Update user profile attributes
           required: true
           schema:
-            $ref: '#/definitions/UserProfile'
+            $ref: "#/definitions/UserProfile"
       produces:
         - application/json
       responses:
-        '200':
-          description: User profile retrieved successully
+        "200":
+          description: User profile retrieved successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
+            $ref: "#/definitions/ApiResponse"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
   /user/profile/{account–id}:
     get:
@@ -119,7 +119,7 @@ paths:
       tags:
         - User Module
       summary: User bank accounts
-      description: API for fetching a user bank accounts
+      description: API to visualize the user's transactions
       parameters:
         - in: header
           type: string
@@ -134,22 +134,22 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
-          description: Account's informations retrieved successully
+        "200":
+          description: Account's informations retrieved successfully
           schema:
-            $ref: '#/definitions/Account'
-        '400':
+            $ref: "#/definitions/Account"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
-  /user/profile/{account-id}/transactions/{transaction-id}:
+  /user/profile/{account-id}/transactions/{transaction-itemId}:
     get:
       security:
         - Bearer: []
       tags:
         - User Module
       summary: User bank accounts
-      description: API for fetching a user transaction details
+      description: API to fetch a transaction details
       parameters:
         - in: header
           type: string
@@ -161,7 +161,7 @@ paths:
           description: account ID
           required: true
           type: string
-        - name: transaction-id
+        - name: transaction-itemId
           in: path
           description: transaction ID
           required: true
@@ -169,13 +169,13 @@ paths:
       produces:
         - application/json
       responses:
-        '200':
-          description: Transaction successully retrieved
+        "200":
+          description: Transaction successfully retrieved
           schema:
-            $ref: '#/definitions/TransactionExample'
-        '400':
+            $ref: "#/definitions/TransactionExample"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
     put:
       security:
@@ -183,7 +183,7 @@ paths:
       tags:
         - User Module
       summary: User bank accounts
-      description: API for fetching a user transaction details
+      description: API to add, edit or delete a transaction details
       parameters:
         - in: header
           type: string
@@ -195,29 +195,29 @@ paths:
           description: account ID
           required: true
           type: string
-        - name: transaction-id
+        - name: transaction-itemId
           in: path
           description: transaction ID
           required: true
           type: string
         - in: body
           name: body
-          description: Update Transaction attributes
+          description: Transaction details
           required: true
           schema:
             $ref: "#/definitions/TransactionExample"
       produces:
         - application/json
       responses:
-        '200':
-          description: Transaction successully edited
+        "200":
+          description: Transaction successfully edited
           schema:
-            $ref: '#/definitions/EditedTransactionMessageExample'
-        '400':
+            $ref: "#/definitions/EditedTransactionMessageExample"
+        "400":
           description: Invalid Fields
-        '500':
+        "500":
           description: Internal Server Error
-          
+
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -272,7 +272,7 @@ definitions:
         type: string
       lastName:
         type: string
-  
+
   Account:
     type: object
     properties:
@@ -288,7 +288,7 @@ definitions:
         items:
           type: object
           properties:
-            transaction_id:
+            transaction_itemId:
               type: number
             date:
               type: string
@@ -307,7 +307,7 @@ definitions:
   TransactionExample:
     type: object
     properties:
-      transaction-id:
+      transaction-itemId:
         type: string
         description: transaction's ID
         example: bsjch65jhe
@@ -356,7 +356,7 @@ definitions:
   EditedTransactionExample:
     type: object
     properties:
-      transaction-id:
+      transaction-itemId:
         type: string
         description: transaction's ID
         example: bsjch65jhe
