@@ -9,7 +9,9 @@ import { Navigate } from "react-router-dom"
 import { accountBalances } from "../../data/accountBalances"
 
 const Profile = () => {
-  const loggingStatus = useSelector((state) => state.isloggedReducer)
+  const loggingStatus = useSelector((state) => state.isloggedReducer) // true is connected, false is disconnected
+
+  // Toggles the EditName form for "Edit Name", "Save" and "Cancel" buttons
   const [toggle, setToggle] = useState(false)
   const toggleEditNameForm = () => {
     setToggle(!toggle)
@@ -32,7 +34,7 @@ const Profile = () => {
         className={
           toggle === true ? "editNameSection" : "editNameSection hidden"
         }
-        cancel={toggleEditNameForm}
+        toggle={toggleEditNameForm}
       />
       <button
         className={toggle === true ? "editNameBtn hidden" : "editNameBtn"}

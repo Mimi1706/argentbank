@@ -6,6 +6,7 @@ import { putUser } from "../../../utils/Apifetch"
 import { getName } from "../../../redux/actions"
 
 const EditName = (props) => {
+  // Retrieve names from the store
   const firstName = useSelector((state) => state.getUserInfosReducer.firstName)
   const lastName = useSelector((state) => state.getUserInfosReducer.lastName)
 
@@ -13,9 +14,11 @@ const EditName = (props) => {
 
   const saveName = (e) => {
     e.preventDefault()
+    // Modify the name in the store
     dispatch(
       getName(e.target.firstNameInput.value, e.target.lastNameInput.value)
     )
+    // Access the api to modify the fullname
     putUser(localStorage.getItem("token"), {
       firstName: e.target.firstNameInput.value,
       lastName: e.target.lastNameInput.value,
@@ -43,10 +46,10 @@ const EditName = (props) => {
         </div>
       </section>
       <div className="editNameButtons">
-        <button onClick={props.cancel} type="submit">
+        <button onClick={props.toggle} type="submit">
           Save
         </button>
-        <button onClick={props.cancel} type="reset">
+        <button onClick={props.toggle} type="reset">
           Cancel
         </button>
       </div>

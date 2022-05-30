@@ -5,7 +5,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { logout } from "../../redux/actions"
 
 const Header = () => {
-  const loggingStatus = useSelector((state) => state.isloggedReducer)
+  const loggingStatus = useSelector((state) => state.isloggedReducer) // true is connected, false is disconnected
+
   const firstName = useSelector((state) => state.getUserInfosReducer.firstName)
   const dispatch = useDispatch()
 
