@@ -285,7 +285,7 @@ definitions:
         items:
           type: object
           properties:
-            transaction_itemId:
+            transaction-itemId:
               type: number
             date:
               type: string
@@ -295,7 +295,6 @@ definitions:
               type: number
             balance:
               type: number
-
   TransactionExample:
     type: object
     properties:
@@ -351,8 +350,7 @@ definitions:
         example: "Food"
       notes:
         type: string
-        example: String
-
+        example: New oven and two spatulas
   EditedTransactionMessageExample:
     type: object
     properties:
