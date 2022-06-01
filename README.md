@@ -8,7 +8,7 @@ Argent Bank website (Home, Profile, Login, Error)
 
 - JS
 - CSS
-- React
+- React + Redux + React-Redux
 
 ## Prerequisites for installation
 
