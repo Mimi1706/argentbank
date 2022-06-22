@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Mimi1706/HanNguyen_13_030522/static/css/main.1612502b.css",
+    "main.js": "/Mimi1706/HanNguyen_13_030522/static/js/main.3ccbf085.js",
+    "static/media/banner.jpeg": "/Mimi1706/HanNguyen_13_030522/static/media/banner.4d59987c7c62b024b014.jpeg",
+    "static/media/icon-security.png": "/Mimi1706/HanNguyen_13_030522/static/media/icon-security.1c819fa1007a5c53e6a9.png",
+    "static/media/logo.png": "/Mimi1706/HanNguyen_13_030522/static/media/logo.e031a16c76ab9bbbf78a.png",
+    "static/media/icon-chat.png": "/Mimi1706/HanNguyen_13_030522/static/media/icon-chat.e238539d82b5a5f63c33.png",
+    "static/media/icon-money.png": "/Mimi1706/HanNguyen_13_030522/static/media/icon-money.8ec88bb1a5070fd6513a.png",
+    "index.html": "/Mimi1706/HanNguyen_13_030522/index.html",
+    "main.1612502b.css.map": "/Mimi1706/HanNguyen_13_030522/static/css/main.1612502b.css.map",
+    "main.3ccbf085.js.map": "/Mimi1706/HanNguyen_13_030522/static/js/main.3ccbf085.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1612502b.css",
+    "static/js/main.3ccbf085.js"
+  ]
+}
