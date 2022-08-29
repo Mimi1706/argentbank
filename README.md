@@ -3,7 +3,7 @@
 # [OpenClassrooms] - Projet 13
 **Utiliser une API pour un compte utilisateur bancaire avec React**
 
-As part of the Openclassrooms [Front-end developper course](https://openclassrooms.com/fr/paths/314-developpeur-front-end), this project introduces to the usage of Mongodb, a database program; it also goes through how to access a database and modify its data with the use of redux and CRUD methods (in this case, the name of the user can be changed in the profile page and will be updated in the database). 
+As part of the Openclassrooms [Front-end developper course](https://openclassrooms.com/fr/paths/314-developpeur-front-end), this project introduces to the usage of Mongodb, a database program; it also focuses on how to access a database and modify its data with the use of redux and CRUD methods (in this case, the name of the user can be changed in the profile page and will be updated in the database). 
 
 The reading, using and writing of a [swagger](https://swagger.io) for documentation purpose was also part of the course. 
 
