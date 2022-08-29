@@ -21,7 +21,7 @@ const Header = () => {
         <Link to={`/profile`} className="signButton">
           <i className="fa fa-user-circle" /> {firstName}
         </Link>
-        <Link to={`/`} className="signOutButton" onClick={logOut}>
+        <Link to={`/home`} className="signOutButton" onClick={logOut}>
           <i className="fa fa-sign-out" /> Sign Out
         </Link>
       </div>
@@ -38,7 +38,7 @@ const Header = () => {
 
   return (
     <header>
-      <Link to={`/`}>
+      <Link to={`/home`}>
         <img src={logo} className="headerLogo" alt="Logo Sportsee"></img>
       </Link>
       {loggingStatus === true ? <LogOut /> : <SignIn />}
